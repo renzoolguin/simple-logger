@@ -1,0 +1,30 @@
+{
+  "name": "simple-logger",
+  "title": "Simple Logger",
+  "version": "1.0.0",
+  "description": "A wrapper for console.log (et al) for organizing output and log-disabling without explicit removal of console commands. ",
+  "keywords": [],
+  "license": "ISC",
+  "private": true,
+  "author": {
+    "name": "Renzo Olguin",
+    "email": "rmolguin@pbs.org"
+  },
+  "engines": {
+    "node": "10.15.0",
+    "npm": "6.4.1"
+  },
+  "main": "src/index.js",
+  "config": {
+    "dist": "dist"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "5.5.0"
+  },
+  "scripts": {
+    "lint": "node_modules/.bin/eslint ./src",
+    "test": "npm run lint",
+    "start": "npm run lint"
+  }
+}
