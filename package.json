@@ -14,11 +14,7 @@
     "node": "10.15.0",
     "npm": "6.4.1"
   },
-  "main": "dist/simple-logger.js",
-  "config": {
-    "export": "src/index.js",
-    "dist": "dist"
-  },
+  "main": "src/index.js",
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "7.3.4",
