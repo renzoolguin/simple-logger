@@ -12,11 +12,13 @@ module.exports = () => {
       rules: [
         {
           test: /\.js$/,
-          exclude: /node_modules/,
+          include: [
+            path.resolve('src')
+          ],
           use: {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/preset-env']
+              configFile: path.resolve('babel.config.js'),
             }
           }
         }
