@@ -52,22 +52,22 @@ export default class Logger {
 
       if(typeof console !== 'undefined') {
         if(type === 'error' && console.error) {
-          console.error.apply(null, args);
+          console.error.apply(console, args);
         }
         else if(type === 'error' && typeof window.Error === 'function') {
           throw new Error(args);
         }
         else if(type === 'info' && console.info) {
-          console.info.apply(null, args);
+          console.info.apply(console, args);
         }
         else if(type === 'warn' && console.warn) {
-          console.warn.apply(null, args);
+          console.warn.apply(console, args);
         }
         else if(type === 'debug' && console.debug) {
-          console.debug.apply(null, args);
+          console.debug.apply(console, args);
         }
         else if(console.log) {
-          console.log.apply(null, args);
+          console.log.apply(console, args);
         }
       }
       else if(typeof window.debug !== 'undefined') {
