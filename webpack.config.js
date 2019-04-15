@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = () => {
   return {
-    entry: ['@babel/polyfill', `./${process.env.npm_package_main}`],
+    entry: ['@babel/polyfill', './src/index.js'],
     output: {
       filename: `${process.env.npm_package_name}.js`,
       path: path.resolve(__dirname, 'dist')
