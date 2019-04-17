@@ -93,3 +93,5 @@ export default class Logger {
     this.log(message, data, 'error', force);
   }
 }
+
+global.Logger = Logger;
