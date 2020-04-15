@@ -1,5 +1,5 @@
 // Type definitions for simple-logger v1.0.1
-
+declare module 'simple-logger';
 /*~ If this module is a UMD module that exposes a global variable 'myClassLib' when
  *~ loaded outside a module loader environment, declare that global here.
  *~ Otherwise, delete this declaration.
@@ -19,7 +19,7 @@ declare class Logger {
   private appName: string;
   private appVersion: string;
   init(app: string, version: string): void;
-  set enabled(value: boolean): void;
+  set enabled(value: boolean);
   get enabled(): boolean;
   log(message: string, data: object, type: string, force: boolean): void;
   debug(message: string, data: object, type: string, force: boolean): void;
