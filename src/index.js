@@ -1,22 +1,4 @@
-let appName;
-let appVersion;
-
-let isEnabled = false;
-
 export default class Logger {
-  static set enabled(value) {
-    isEnabled = value;
-  }
-
-  static get enabled() {
-    return isEnabled;
-  }
-
-  static init(app, version) {
-    appName = app;
-    appVersion = version;
-  }
-
   constructor (className) {
     this.log = this.log.bind(this);
     this.info = this.info.bind(this);
@@ -25,19 +7,35 @@ export default class Logger {
     this.debug = this.debug.bind(this);
 
     this.prefix = className;
-
-    if (appName ) {
-      this.prefix += ' :: ' + appName;
-      if (appVersion) {
-        this.prefix += ' v' + appVersion;
-      }
-    }
+    this.isEnabled = false;
+    this.appName = '';
+    this.appVersion = '';
 
     this.prefix += '\n';
   }
 
+  static set enabled(value) {
+    this.isEnabled = value;
+  }
+
+  static get enabled() {
+    return this.isEnabled;
+  }
+
+  static init(app, version) {
+    this.appName = app;
+    this.appVersion = version;
+    if (this.appName !== '') {
+      this.prefix += ' :: ' + this.appName;
+      if (this.appVersion !== '') {
+        this.prefix += ' v' + this.appVersion;
+      }
+    }
+  }
+
+
   log (message, data, type, force) {
-    if (isEnabled === true || force === true) {
+    if (this.isEnabled === true || force === true) {
       let args = [this.prefix];
 
       if (typeof message === 'string') {
